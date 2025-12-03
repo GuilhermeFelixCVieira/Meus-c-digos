@@ -1,0 +1,95 @@
+import java.util.ArrayList;
+
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
+public class Main {
+    public static void main(String[] args) {
+        //Aprendendo os tipos primitivos e classes
+        String MinhaCidade = "Guaratinguetá"; //é branco porque não é tipo primitivo
+        float MinhaNota = 6.52f;
+        double PiAproximado = 3.1415926535;
+        char letra = 'k';
+        byte MinhaIdade = 20;
+        byte TemperaturaPoloNorteCelsius = -35;
+        short AnoAtual = 2025;
+        short TroféusClashRoyale = 7011;
+        int VelDaLuzMetrosPorSeg = 299700000;
+        long frequênciaUVHz = 1000000000000000L;
+        var MinhaAlturaMetros = 1.73f;
+        var MeuSobreNome = "Felix";
+        boolean SouBonito = false;
+        boolean TuÉsFeio = false;
+        if(SouBonito) {
+            System.out.println("é mesmo");
+        } else if(TuÉsFeio) {
+            System.out.println("Você que é");
+        } else {
+            System.out.println("Tu és bonito");
+        }
+        if (AnoAtual-MinhaIdade>2020) {
+            System.out.println("verdadeiro");
+        } else {
+            System.out.println("Falso");
+        }
+        //Aprendendo sobre os Vetores/arrays/listas (mesmas coisas):
+        int [] ListaDeInteiros = {12,13,14,15,16,17,18,19,20,21};
+        System.out.println(ListaDeInteiros[6]);//6 é a posição 7, pois a contagem das posições começam no 0
+        if(ListaDeInteiros[6]>15){
+            System.out.println("Okay");} else {
+            System.out.println("Wrog");}
+        System.out.println(ListaDeInteiros.length);
+        System.out.println(frequênciaUVHz);
+        String [] Nomes = {"Maria", "Pedro", "Guilherme", "Victor", "Gabriela", "Giovanna"};
+        System.out.println(Nomes[2]+" é top");
+
+        boolean [] bool = {true, false};
+
+        //ArrayList é uma CLASSE, assim como a String. Ela permite implementar uma lista dinâmica de elementos,
+        //ou seja, elementos podem entrar e sair da lista, não sendo necessário declaras seu tamanho.
+
+        ArrayList<String> Países = new ArrayList<>();
+        Países.add("Brasil");
+        Países.add("Argentina");
+        Países.add("Estados Unidos");
+        Países.add("África do Sul");
+        Países.add("Rússia");
+        Países.add("França");
+        Países.add("Itália");
+
+        System.out.println(Países.get(4));
+        //A seguir, temos a primeira forma de fazer um loop (listar os elementos de um array). Nesse caso eu
+        //listei de 2 em 2 e comecei pela Argentina, para começar pelo Brasil basta escrever i=0 em vez de i=1,
+        //e para listar de 1 em 1, basta usar i++ ou i=i+1 no lugar de i=i+2.
+        for (int i = 1; i < Países.size(); i=i+2) {
+            System.out.println(Países.get(i)+" é excelente");
+        }
+        //também dá pra listar dessa forma:
+        for (String país : Países) {
+            System.out.println(país);
+        }
+        //Uso do "while" para criar um loop:
+        byte contador = 0;
+        while(contador < 3){
+            System.out.println("Amar é necessário");
+            contador++;
+        }
+        //No Java, não tem como mudar os "tipos" aleatoriamente. or exmeplo, ao definir um elemento como String,
+        //depois não adianta tentar usá-lo como um inteiro, ou como double e etc, ele sempre será um String.
+        //A menos que você faça um CASTING. No exemplo abaixo eu tranformei o tipo do número de Euler
+        //de um número decimal para um inteiro. Ele vai pegar o piso de 2.718, ou seja, 2:
+
+        double NumeroDeEuler = 2.718;
+        int NumeroDeEulerInt = (int) NumeroDeEuler;
+        System.out.println(NumeroDeEulerInt);
+
+        //Dá pra fazer um CASTING implícito:
+        String DiaDoAniversario = "3";
+        int DiaDoAniversarioInt = Integer.parseInt(DiaDoAniversario);
+        System.out.println(DiaDoAniversarioInt);
+        //Dá pra voltar:
+        String Birthday = String.valueOf(DiaDoAniversarioInt);
+        }
+
+    }
+}
