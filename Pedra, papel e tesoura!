@@ -1,0 +1,47 @@
+import random
+import time
+def JOGAR ( ):
+    VitoriaUsuario = 0
+    VitoriaPC = 0
+    Nome = input('Qual é o seu nome? ')
+
+    for rodada in range (1,6) :
+        print('RODADA', rodada)
+        Escolha = input('escolha pedra, papel ou tesoura: ').lower()
+        Opcoes = ['pedra', 'papel', 'tesoura']
+        while Escolha not in Opcoes:
+            print('Escolha apenas entre pedra, papel ou tesoura! : ')
+            Escolha = input('escolha pedra, papel ou tesoura: ').lower()
+        EscolhaPC = random.choice(Opcoes)
+        
+        time.sleep(1)
+        if Escolha == EscolhaPC:
+            print(f'O computador também escolheu {EscolhaPC}, empate!')
+            time.sleep(2)
+            print(f'Placar: {Nome} {VitoriaUsuario} X {VitoriaPC} PC')
+        elif (Escolha=='pedra' and EscolhaPC=='tesoura') or \
+        (Escolha=='tesoura' and EscolhaPC=='papel') or \
+        (Escolha=='papel' and EscolhaPC=='pedra'):
+            print(f'O computador escolheu {EscolhaPC}, você ganhou!')
+            VitoriaUsuario+=1
+            time.sleep(2)
+            print(f'Placar: {Nome} {VitoriaUsuario} X {VitoriaPC} PC')
+        else:    
+            print(f'O computador escolheu {EscolhaPC}, você perdeu!')
+            VitoriaPC+=1
+            time.sleep(2)
+            print(f'Placar: {Nome} {VitoriaUsuario} X {VitoriaPC} PC')
+    print('finalmente...')
+    time.sleep(2)
+    print('\n =={§$$§}==FIM DE JOGO=={§$$§}==')
+    print(f'RESULTADO FINAL: {Nome} {VitoriaUsuario} X {VitoriaPC} PC')
+    if VitoriaUsuario==VitoriaPC: print('EMPATE')
+    elif VitoriaUsuario>VitoriaPC: print('VOCÊ VENCEU!')
+    else: print('COMPUTADOR VENCEU!')
+while True:
+    JOGAR( )
+    final = input('\n Deseja jogar novamente? (sim/não):\n').lower()
+    if final != 'sim':
+        print('encerrando o jogo...')
+        time.sleep(5)
+        break
